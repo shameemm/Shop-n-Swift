@@ -1,0 +1,57 @@
+
+
+      <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+{%extends 'sales_index.html'%}
+{% block body%}
+
+
+<body>
+<h1> View Bill</h1>
+<form id="form1" name="form1" method="post" action="/viewbill" style="height:75%; width:70%">
+  <table width="679" border="1" id="customers">
+    <tr>
+      <th scope="col">bill no </th>
+      <th scope="col">date</th>
+      <th scope="col">total price </th>
+      <th scope="col">status</th>
+<!--      <th scope="col">&nbsp;</th>-->
+    </tr>
+    <tr>{%for i in bill%}
+    <tr>
+
+      <td>&nbsp;{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[3]}}</td>
+      <td>&nbsp;{{i[4]}}</td>
+<!--      <td>&nbsp;{{i[5]}}</td>-->
+<!--      <td><a href="/viewbill2?id={{i[0]}}">view</a></td>-->
+
+    </tr>
+    {%endfor%}
+  </table>
+</form>
+</body>
+  {%endblock%}

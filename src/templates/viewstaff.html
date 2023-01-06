@@ -1,0 +1,63 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+<!--     <a href="/addstaff">Add New</a>-->
+
+<form id="form1" name="form1" method="post" action="/addstaff" style="height:75%; width:70%">
+  <table width="566" height="146" border="1" id="customers">
+    <tr>
+      <th >staff id </th>
+      <th >staff name  </th>
+      <th >age</th>
+      <th>gender</th>
+      <th>address</th>
+      <th >phone</th>
+      <th> </th>
+      <th> </th>
+    </tr>{%for i in staff%}
+    <tr>
+
+      <td>&nbsp;{{i[0]}}</td>
+      <td>{{i[1]}} {{i[2]}}</td>
+      <td>{{i[3]}}</td>
+      <td>&nbsp;{{i[4]}}</td>
+      <td>&nbsp;{{i[5]}} {{i[7]}} {{i[8]}}</td>
+      <td>&nbsp;{{i[6]}}</td>
+
+      <td><a href="/delete_staff?id={{i[0]}}">delete</a></td>
+
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+
+  <a href="/addstaff"><input type="button" value="Add New" class="btn-primary"></a>
+
+<!--     <a href="/addstaff">Add New</a>-->
+</form>
+  {%endblock%}}

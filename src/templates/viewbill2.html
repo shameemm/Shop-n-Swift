@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+{%extends 'admin_index.html'%}
+{% block body%}
+
+<body><center><h1>Bill Items</h1>
+<form id="form1" name="form1" method="post" action="" style="height:75%; width:70%">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th scope="col">product name </th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+    </tr>
+    {%for i in bill%}
+    <tr>
+
+      <td>{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+
+    </tr>
+    {%endfor%}
+
+
+  </table>
+</form>
+  </center>
+</body>
+{%endblock%}
+</html>

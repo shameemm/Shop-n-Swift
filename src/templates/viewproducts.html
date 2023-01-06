@@ -1,0 +1,67 @@
+
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+
+{%extends 'admin_index.html'%}
+{% block body%}
+<body>
+<form id="form1" name="form1" method="post" action="" style="height:75%; width:70%">
+  <table width="566" height="146" border="1" id="customers">
+    <tr>
+      <th width="54" scope="col">product id </th>
+      <th width="54" scope="col">product name </th>
+      <th width="29" scope="col">mfg date </th>
+      <th width="33" scope="col">exp date </th>
+      <th width="33" scope="col">price</th>
+      <th width="33" scope="col">Product Image</th>
+      <th width="33" scope="col">QR Code</th>
+      <th width="263" scope="col">&nbsp; </th>
+      <th width="263" scope="col">&nbsp; </th>
+    </tr>{%for i in products%}
+    <tr>
+
+      <td>&nbsp;{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td>&nbsp;{{i[3]}}</td>
+      <td>{{i[4]}}</td>
+      <td>&nbsp;<img src="./static/product_image/{{i[5]}}" height="100px" width="100px"></td>
+      <td>&nbsp;<img src="./static/qr_code/{{i[0]}}.png" height="130px" width="130px"></td>
+
+
+      <td><a href="/edit_product?id={{i[0]}}">edit</a></td>
+      <td><a href="/delete_product?id={{i[0]}}">delete</a></td>
+
+    </tr>
+    {%endfor%}
+  </table>
+  <br/>
+  <p>
+
+          <a href="/staddproduct"><input type="button" value="Add New" class="btn-primary"></a>
+  </p>
+</form>
+</body>
+{% endblock %}

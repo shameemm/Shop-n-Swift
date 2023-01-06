@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+      <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/staddproduct" style="height:75%; width:70%">
+  <table width="566" height="146" border="1" id="customers">
+    <tr>
+      <th width="54" scope="col">product id </th>
+      <th width="54" scope="col">product name </th>
+      <th width="29" scope="col">mfg date </th>
+      <th width="33" scope="col">exp date </th>
+      <th width="33" scope="col">price</th>
+    </tr>{%for i in product%}
+    <tr>
+
+      <td>&nbsp;{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td>&nbsp;{{i[3]}}</td>
+      <td>&nbsp;{{i[4]}}</td>
+
+      <td>&nbsp;<img src="./static/product_image/{{i[5]}}" height="100px" width="100px"></td>
+
+
+    </tr>
+    {%endfor%}
+  </table>
+
+</form>
+</body>
+</html>

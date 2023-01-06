@@ -1,0 +1,55 @@
+
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+{%extends 'sales_index.html'%}
+{% block body%}
+
+<body>
+<form id="form1" name="form1" method="post" action="" style="height:75%; width:70%">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th scope="col">Product ID </th>
+      <th scope="col">Product Name </th>
+      <th scope="col">Mfg. Date </th>
+      <th scope="col">Exp. Date </th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">&nbsp;</th>
+    </tr>{%for i in product%}
+    <tr>
+      <td>{{i[0]}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td>{{i[3]}}</td>
+      <td>{{i[6]}}</td>
+      <td>{{i[4]}}</td>
+      <td><img src="./static/product_image/{{i[5]}}" height="100px" width="100px"></td>
+    </tr>
+    {%endfor%}
+  </table>
+</form>
+</body>
+  {%endblock%}
+

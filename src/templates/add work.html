@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Shop'n'Swift</title>
+</head>
+
+<body><center>
+<form id="form1" name="form1" method="post" action="/assign_work"style="height: 30%; width: 50%">
+  <table width="200" border="1" id="customers" style="margin-top:5%">
+    <tr>
+      <th scope="row">Bill ID </th>
+      <td><label>
+        <select name="billid">
+          {%for i in bill%}
+          <option>{{i[0]}}</option>
+          {%endfor%}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Agent</th>
+      <td><label>
+        <select name="agent">
+          {%for j in agent%}
+          <option value="{{j[1]}}">{{j[2]}} {{j[3]}}</option>
+          {%endfor%}
+        </select>
+      </label></td>
+    </tr>
+
+    <tr>
+      <td colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="Assign" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</center>
+</body>
+</html>

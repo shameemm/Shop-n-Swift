@@ -1,0 +1,63 @@
+
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+{%extends 'store_index.html'%}
+{% block body%}
+
+<body><center>
+<form id="form1" name="form1" method="post" action="/adddeliveryagent" style="height:75%; width:70%">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th scope="row">NAME</th>
+
+      <th>ADDRESS</th>
+      <th>PHONE</th>
+      <th>EMAIL</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>{%for i in dagent%}
+    <tr>
+
+      <td>&nbsp;{{i[2]}} {{i[3]}}</td>
+      <td>{{i[4]}} {{i[5]}}</td>
+      <td>{{i[6]}}</td>
+      <td>&nbsp;{{i[7]}}</td>
+
+
+      <td><a href="/edit_agent?id={{i[0]}}">Edit</a></td>
+      <td><a href="/delete_agent?id={{i[0]}}">Delete</a></td>
+
+    </tr>
+    {%endfor%}
+    <tr>
+      <th colspan="6" scope="row"><label>
+        <input type="submit" name="Submit" value="ADD NEW" />
+      </label></th>
+    </tr>
+  </table>
+</form></center>
+{%endblock%}
+</body>
+

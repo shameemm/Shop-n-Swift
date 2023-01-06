@@ -1,0 +1,46 @@
+
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+{%extends 'store_index.html'%}
+{% block body%}
+<body>
+<form id="form1" name="form1" method="post" action="" style="height:75%; width:70%">
+  <table width="426" border="1" id="customers">
+    <tr>
+      <th width="59" scope="row">Agent Name </th>
+      <th width="87">Agent Assigned Work </th>
+      <th width="258">&nbsp;</th>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>&nbsp;{{i[0]}} {{i[1]}}</td>
+      <td>&nbsp;{{i[2]}} {{i[3]}}</td>
+      <td><a href="http://maps.google.com?q={{i[4]}},{{i[5]}}">track</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+
+{% endblock %}

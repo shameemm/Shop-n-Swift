@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Shop'n'Swift</title>
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+</head>
+
+<body><center>
+<form action="/update_product" method="post" enctype="multipart/form-data" name="form1" id="form1"style="height:75%; width:70%">
+  <table width="495" border="1" id="customers">
+    <tr>
+      <th width="62" scope="row">Product name </th>
+      <td width="417"><label>
+        <input type="text" name="pname" value = "{{products[1]}}"required  />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Mfgdate  </th>
+      <td><label>
+        <input type="date" name="mfgd" value = "{{products[2]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Expiry date </th>
+      <td><label>
+        <input type="date" name="expd" value = "{{products[3]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Price</th>
+      <td><label>
+        <input type="text" name="price" value = "{{products[4]}}" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Product image </th>
+      <td><label>
+        <input type="file" name="image" value = "{{products[5]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><label>
+        <input type="submit" name="Submit2" value="Update" />
+      </label></th>
+    </tr>
+  </table>
+</form></center>
+</body>
+</html>

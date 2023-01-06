@@ -1,0 +1,101 @@
+
+
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color:#ececf0;
+  color: #666666;
+
+ .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+}
+</style>
+
+
+{%extends 'index.html'%}
+{% block body%}
+
+<body>
+<form id="form1" name="form1" method="post" action="/login" style="height:30%; width: 50%; margin-top=50% " >
+  <div class="form-outline mb-2">
+            <input type="text" id="username" name="username" class="form-control form-control-lg"
+              placeholder="Enter a valid username" />
+
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-2">
+            <input type="password" id="password" name="password" class="form-control form-control-lg"
+              placeholder="Enter password" />
+
+          </div>
+
+
+
+          <div class="text-center text-lg-start mt-2 pt-2" >
+            <button type="submit" class="btn btn-primary btn-lg" name="login" id="login"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+
+
+          </div>
+
+        </form>
+
+<!--  <table width="329" border="1" id="customers" class="table" style="margin-top:5%" >-->
+<!--    <tr>-->
+
+<!--      <td width="193"><label>-->
+<!--        <input type="text" name="username" required placeholder="Enter Username"/>-->
+<!--      </label></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+
+<!--      <td><label>-->
+<!--        <input type="password" name="password" required placeholder="Enter Password"/>-->
+<!--      </label></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <th height="45" colspan="2" scope="row"><div align="center">-->
+<!--        <label>-->
+<!--        <input name="Login" type="submit" id="Login" value="Login" />-->
+<!--        </label>-->
+<!--      </div></th>-->
+<!--    </tr>-->
+
+<!--  </table>-->
+
+<!--</form>-->
+
+{%endblock%}
+</body>
+

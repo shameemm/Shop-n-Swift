@@ -1,0 +1,80 @@
+
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+{%extends 'store_index.html'%}
+{% block body%}
+
+<body>
+<form id="form1" name="form1" method="post" action="/stockupdate" style="height:75%; width:70%">
+  <table width="200" border="1" id="customers">
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col"><label>
+
+        <select name="pname" size="1" id="Unbound">
+          {%for i in res%}
+              <option value="{{i[0]}}">{{i[1]}}</option>
+          {%endfor%}
+        </select>
+      </label></th>
+    </tr>
+    <tr>
+      <td>Mfg. Date </td>
+      <td><label>
+        <input type="date" name="mfgd" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Exp. Date </td>
+      <td><label>
+        <input type="date" name="expd" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><label>
+        <input type="text" name="price" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td><label>
+        <input type="text" name="qty" required/>
+      </label></td>
+    </tr>
+
+
+    <tr>
+      <td colspan="2"><div align="right">
+        <label>
+        <input type="submit" name="Submit" value="Update" />
+        </label>
+      </div></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+  {%endblock%}
+

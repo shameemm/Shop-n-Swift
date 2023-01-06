@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Shop'n'Swift</title>
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+</head>
+
+<body>
+<center><h1>Edit Delivery Agent</h1>
+<form id="form1" name="form1" method="post" action="/updateagent" style="height:75%; width:70%">
+  <table width="452" border="1" id="customers">
+    <tr>
+      <th width="164" scope="row">First Name </th>
+      <td width="272"><label>
+        <input type="text" name="fname" value = "{{agent[2]}}" required pattern="[A-Z a-z]{2,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Last Name </th>
+      <td><label>
+        <input type="text" name="lname" value = "{{agent[3]}}"required pattern="[A-Z a-z]{1,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><label>
+        <input type="text" name="place" value = "{{agent[4]}}" required pattern="[A-Z a-z]{2,25}" />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Pin</th>
+      <td><label>
+        <input type="text" name="pin" value = "{{agent[5]}}" pattern="[0-9]{6}" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Phone</th>
+      <td><label>
+        <input type="text" name="phone" value = "{{agent[6]}}" required pattern="[6789][0-9]{9}"  />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Email id </th>
+      <td><label>
+        <input type="text" name="email" value = "{{agent[7]}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <th colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="Register" />
+      </label></th>
+    </tr>
+  </table>
+</form>
+</center>
+</body>
+</html>

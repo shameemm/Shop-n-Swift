@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Shop'n'Swift</title>
+  <style>
+  #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}</style>
+</head>
+
+<body><center><h1>Edit Sales</h1>
+<form id="form1" name="form1" method="post" action="/update_sales" style="height:75%; width:70%">
+  <table width="617" border="1" id="customers">
+    <tr>
+      <th width="50" scope="row"><p>First name</p>      </th>
+      <td width="144"><label>
+        <input type="text" name="fname" value = "{{sales[1]}}" pattern="[A-Z a-z]{2,25}" required/>
+      </label></td>
+      <td width="61">Last name </td>
+      <td width="334"><label>
+        <input type="text" name="lname" value = "{{sales[2]}}" pattern="[A-Z a-z]{1,25}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Age</th>
+      <td><label>
+        <input type="text" name="age" value = "{{sales[3]}}" required  />
+      </label></td>
+      <td>pin</td>
+      <td><label>
+        <input type="text" name="pin" value = "{{sales[7]}}" pattern="[0-9]{6}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Gender</th>
+      <td><label>
+      <input name="radiobutton" type="radio" value="male" {% if sales[4]=="male"%} checked{%endif%} checked/>
+      male
+      <input name="radiobutton" type="radio" value="female" {% if sales[4]=="female"%} checked{%endif%} />
+      female</label></td>
+      <td>Phone</td>
+      <td><label>
+        <input type="text" name="phone" value = "{{sales[6]}}" pattern="[6789][0-9]{9}" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Place</th>
+      <td><label>
+        <input type="text" name="place" value = "{{sales[5]}}" pattern="[A-Z a-z]{2,25}" required />
+      </label></td>
+
+    </tr>
+
+    <tr>
+      <th colspan="4" scope="row"><div align="center">
+        <label></label>
+      Email :
+      <label>
+      <input type="text" name="email" value = "{{sales[8]}}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" required/>
+      </label>
+</div></th>
+    </tr>
+    <tr>
+      <th colspan="4" scope="row"><input type="submit" name="Submit" value="Update" /></th>
+    </tr>
+  </table>
+</form></center>
+</body>
+</html>
